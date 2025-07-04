@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataVault Pro Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>DataVault</h2>
+      <nav>
+        <a href="#">Dashboard</a>
+        <a href="#">Alerts</a>
+        <a href="#">Backups</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="controls">
+          <input type="text" id="locationInput" placeholder="Enter city (e.g., Lagos)">
+          <button id="refreshBtn">🔄 Refresh Data</button>
+        </div>
+        <div id="spinner" class="spinner" style="display: none;">⏳ Fetching data...</div>
+        <h1>Welcome, Admin</h1>
+        <div class="top-icons">
+          <span>🔍</span>
+          <span>🔔</span>
+          <span>👤</span>
+        </div>
+      </header>
+
+      <section class="cards">
+        <section class="chart-section">
+          <h2>Threats Detected This Week</h2>
+          <canvas id="threatChart" width="600" height="300"></canvas>
+        </section>
+
+        <section class="chart-section">
+          <h2>Recovery Time Trend</h2>
+          <canvas id="recoveryChart" width="600" height="300"></canvas>
+        </section>
+
+        <div class="card">
+          <h3>Backups OK</h3>
+          <p>✅ 25</p>
+        </div>
+        <div class="card">
+          <h3>Alerts Today</h3>
+          <p>🔴 3</p>
+        </div>
+        <div class="card">
+          <h3>Avg. Recovery Time</h3>
+          <p>🕒 1.2 hrs</p>
+        </div>
+      </section>
+
+      <!-- Incident Log Section -->
+      <section class="incident-log">
+  <h2>Recent Incident Log</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Incident Type</th>
+          <th>Status</th>
+          <th>Severity</th>
+        </tr>
+      </thead>
+      <tbody id="incidentTableBody"></tbody>
+    </table>
+  </div>
+</section>
+
+
+      <!-- Scrolling Alert Feed -->
+      <section class="alert-ticker">
+        <marquee behavior="scroll" direction="left" id="alertTicker">Live security feed initializing...</marquee>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
